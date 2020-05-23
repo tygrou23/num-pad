@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+
 import './App.css';
+import Createquestion from './components/Createquestion';
+import {connect} from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+    render() {
+      //we check the number of question
+      const {questions} = this.props.calcul;
+      //if number of question is > 0 we print Createquestion
+      if(questions>0)
+          return (<Createquestion/>);
+
+        return(
+        <div className={"container"}>
+                    </div>
+        )
+    }
+
+
 }
+const mapStateToProps = (state) =>{return {...state }};
+const mapDispatchToProps =  {};
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

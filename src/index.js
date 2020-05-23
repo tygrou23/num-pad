@@ -1,12 +1,27 @@
+//import react and redux depedencies
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducers/index';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+//import boostrap from the design of the app 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+
+
+const store = createStore(reducer);
+
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
