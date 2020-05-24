@@ -58,8 +58,6 @@ export default (state = stateinit, action = {}) => {
                 reponsePopup:initAnswPop,
                 result:''
             };
-
-
         default:
             return state;
     }
