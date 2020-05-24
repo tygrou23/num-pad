@@ -1,5 +1,5 @@
 //import dependancies
-import { ADD_NUMBER, VERIF, PREMIERE_QUESTION, CLEAR_ONE, CLEAR_ALL, USER_SCORE, GET_BESTHIGHTSCORE } from "../constants/actions";
+import { ADD_NUMBER, VERIF, PREMIERE_QUESTION, CLEAR_ONE, CLEAR_ALL, SEND_SCORE, GET_HIGHSCORES } from "../constants/actions";
 
 //creation of addnumber usage
 export const addnumber = (payload) =>{
@@ -29,26 +29,46 @@ export const clearone = () =>{
     }
 };
 
-//creation of clearall usage
+//creation of clearallgame usage
 export const clearall = () => {
     return {
         type : CLEAR_ALL,
     }
 };
 
-export const sendscore = (payload)=>{
+
+//scoreing and fin de partie
+
+export const submitScore = (payload)=>{
     return {
-        type : USER_SCORE, payload
+        type : SEND_SCORE, payload
     }
 };
 
-export const getbesthightscore = (payload)=>{
+export const getHighScores = (payload)=>{
     return {
-        type : GET_BESTHIGHTSCORE, payload
+        type : GET_HIGHSCORES, payload
     }
 };
 
+export const fetchHighScoresAsync = () =>{
 
+    const highscores = [
+        {name: "test", highScore: 10},
+        {name: "test1", highScore: 8},
+        {name: "test2", highScore: 8},
+        {name: "test13", highScore: 7},
+        {name: "test14", highScore: 5}
+    ];
+
+    return dispatch => {
+
+        setTimeout(()=>{
+            console.log('ENTER THE DISPATCH get hightscore');
+            dispatch(getHighScores(highscores))
+        },2000);
+    }
+};
 
 
 

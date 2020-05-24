@@ -6,5 +6,5 @@ export const CLEAR_ONE = "CLEAR_ONE";
 export const CLEAR_ALL = "CLEAR_ALL";
 
 //score
-export const USER_SCORE = "SEND_SCORETOTAL";
-export const GET_BESTHIGHTSCORE ="GET_BESTHIGHTSCORE";
+export const SEND_SCORE = "SEND_SCORE";
+export const GET_HIGHSCORES = "GET_HIGHSCORES";

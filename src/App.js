@@ -1,8 +1,11 @@
+//import react dependencies
 import React, {Component} from 'react';
 
+//import from other scripts
 import './App.css';
 import Createquestion from './components/Createquestion';
 import {connect} from "react-redux";
+import GameOver from "./components/GameOver";
 
 class App extends Component {
 
@@ -15,7 +18,8 @@ class App extends Component {
 
         return(
         <div className={"container"}>
-                    </div>
+          <GameOver/>
+        </div>
         )
     }
 
