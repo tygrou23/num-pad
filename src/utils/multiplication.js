@@ -1,5 +1,3 @@
-import React from 'react';
-
 const generateRandomNumb = () => {
     //define min number
     const min = 1;

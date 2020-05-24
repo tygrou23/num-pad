@@ -78,7 +78,7 @@ class Createquestion extends Component {
         else {
             text = `Mauvaise réponse, la bonne réponse était : ${reponsePopup.question.question} ${reponsePopup.question.answer}`;
         }
-            //return all fragement (header + game + scoring + nbquestion)
+            //return all fragement (header + game + scoring + nbquestion + leftmenus)
             return (
                 <React.Fragment>
                     <div className={"container"}>

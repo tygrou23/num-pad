@@ -19,19 +19,18 @@ class BestHighScores extends Component {
                             <li className="list-group-item d-flex justify-content-between align-items-center"
                                     key={index}>
                                 {score.name} <span>{score.highScore} POINTS</span>
-                            </li>
-                        )}
+                            </li>)}
                     </ul>
                 </div>
             );
         else
+        //define a spinner in order to inform player that the page is loading and he need to wait the timer we set (here is 3000 ms)
             return (
-                <div className="spinner-grow text-warning" role="status">
+                <div className="spinner-grow ">
                     <span className="sr-only">Loading Best Hightscore Page...</span>
                 </div>
             )
     }
-
 }
 
 const mapStateToProps = (state) =>{return {...state }};

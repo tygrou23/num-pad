@@ -1,5 +1,5 @@
 //import dependancies
-import { ADD_NUMBER, VERIF, PREMIERE_QUESTION, CLEAR_ONE, CLEAR_ALL,  SEND_SCORE, GET_HIGHSCORES } from "../constants/actions";
+import { ADD_NUMBER, VERIF, PREMIERE_QUESTION, CLEAR_ONE, CLEAR_ALL,  USER_SCORE, GET_BESTHIGHSCORES } from "../constants/actions";
 
 //creation of addnumber usage
 export const addnumber = (payload) =>{
@@ -36,34 +36,36 @@ export const clearall = () => {
     }
 };
 
-export const submitScore = (payload)=>{
+//creation of the userscore
+export const userscore = (payload)=>{
     return {
-        type : SEND_SCORE, payload
+        type : USER_SCORE, payload
     }
 };
 
-export const getHighScores = (payload)=>{
+//creation of getting the best highscores
+export const getthebesthighscores = (payload)=>{
     return {
-        type : GET_HIGHSCORES, payload
+        type : GET_BESTHIGHSCORES, payload
     }
 };
 
+//creation of sending the tab of best highscore un async creation
 export const BestHightScoreAsync = () =>{
-
     const highscores = [
-        {name: "Jean-Louis", highScore: 10},
-        {name: "Jean-Luc", highScore: 8},
-        {name: "Jean-Charles", highScore: 8},
-        {name: "Jean-Claude", highScore: 7},
-        {name: "Jean-Michel", highScore: 5}
+        {name: "Alain Terrieur", highScore: 10},
+        {name: "Alex Terrieur", highScore: 9},
+        {name: "Serra Jean", highScore: 8},
+        {name: "Julien", highScore: 5},
+        {name: "Patrick", highScore: 3}
     ];
-
+    //return the discpatch of this tab
     return dispatch => {
-
         setTimeout(()=>{
-            console.log('entrée dans le dispatch');
-            dispatch(getHighScores(highscores))
-        },2000);
+            console.log('START THE DISPATCH ACTION');
+            //disptach the (getthebesthighscores(with the highscores tab inside))
+            dispatch(getthebesthighscores(highscores))
+        },3000);
     }
 };
 

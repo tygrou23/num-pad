@@ -1,6 +1,8 @@
-import {SEND_SCORE, GET_HIGHSCORES} from '../constants/actions';
+//import the constants
+import {USER_SCORE, GET_BESTHIGHSCORES} from '../constants/actions';
 
-const stateInit = {
+//defin the state init
+const stateinit = {
     player: {
         name: '',
         highScore: null
@@ -8,20 +10,24 @@ const stateInit = {
     highScores:[]
 };
 
-export default (state = stateInit, action = {}) => {
+//export the state
+export default (state = stateinit, action = {}) => {
 
-
+    //switch between action -> user_score and besthishcore
     switch ( action.type) {
-        case SEND_SCORE:
-            console.log('envoi du score');
+
+        //send the user score
+        case USER_SCORE:
+            console.log('SEND USER SCORE');
             return {state};
 
-        case GET_HIGHSCORES:
-            console.log('get highscore list', action.payload);
+        //get the best highscore listing
+        case GET_BESTHIGHSCORES:
+            console.log('GET THE BEST HIGHSCORE LISTING FROM PLAYERS', action.payload);
             return {...state, highScores: action.payload};
 
+        //other case
         default:
             return state;
     }
-
 }

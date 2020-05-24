@@ -5,10 +5,10 @@ import {connect} from "react-redux";
 class KeypadNumber extends Component {
 
     render() {
+        //get the value from this.props when we click on a number on this pad we got the value returned
         const {value} = this.props;
-
         return (
-            <button class="btn btn-dark buttonspacing" onClick={() => this.props.addnumber(value)}><h2>{value}</h2></button>
+            <button class="btn btn-dark buttonspacing" onClick={() => this.props.addnumber(value)}><h3>{value}</h3></button>
         )
     }
 }
