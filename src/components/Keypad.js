@@ -8,6 +8,7 @@ class Keypad extends Component{
     render(){
         //get the different action from this.props and assign to diff buttons
         const {clearone, clearall, check} = this.props;
+        const {result, allQuestions, questions} = this.props.calcul;
 
         return(
             <div class="rowleft">
@@ -51,13 +52,19 @@ class Keypad extends Component{
                     </div>
                 </div>
                 <div className="row">
-                    <button className="btn btn-primary" onClick={check}>Go!</button>
+                    <button className="btn btn-primary" 
+                        disabled={! (parseInt(result) >= 0) } 
+                        onClick={check}>Go!</button>
                 </div>
                 <div className="row">
-                    <button className="btn btn-danger" onClick={clearone}>Clear Number</button>
+                    <button className="btn btn-danger"
+                    disabled={! (parseInt(result) >= 0) }
+                    onClick={clearone}>Clear Number</button>
                 </div>
                 <div className="row">
-                    <button className="btn btn-danger" onClick={clearall}>Restart Game</button>
+                    <button className="btn btn-danger"
+                    disabled={ (questions === allQuestions) }
+                    onClick={clearall}>Restart Game</button>
                 </div>
             </div>
         )
