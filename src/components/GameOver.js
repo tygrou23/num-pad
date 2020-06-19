@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {BestHightScoreAsync, getthebesthighscores, clearall} from "../actions/actions-types";
 import BestHighScores from "./BestHighScores";
 
-class FinPartie extends Component{
+class GameOver extends Component{
 
     componentDidMount() {
         //get this.props
@@ -15,14 +15,14 @@ class FinPartie extends Component{
     }
 
     render(){
-        //get the clearall and scoretotal from this.props (.calcul)
+        //get the clearall and totalscore from this.props (.calcul)
         const {clearall} = this.props;
-        const {scoretotal} = this.props.calcul;
-        //print the FinPartie page
+        const {totalscore} = this.props.calcul;
+        //print the GameOver page
         return(
             <div >
                 <h1>GAME OVER</h1>
-                <p className="lead">Your HighScore is : {scoretotal}</p>
+                <p className="lead">Your HighScore is : {totalscore}</p>
                     <BestHighScores/>
                 <p >
                     <button className="btn btn-primary btn-lg" onClick={clearall}>PLAY AGAIN</button>
@@ -35,4 +35,4 @@ class FinPartie extends Component{
 const mapStateToProps = (state) =>{return {...state }};
 const mapDispatchToProps =  {clearall, BestHightScoreAsync, getthebesthighscores };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FinPartie)
+export default connect(mapStateToProps, mapDispatchToProps)(GameOver)

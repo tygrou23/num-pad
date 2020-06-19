@@ -3,12 +3,12 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 //import from other scrips
 import Keypad from "./Keypad";
-import Alertmessage from "./Alertmessage";
-import {premierequestion} from "../actions/actions-types";
+import AlertMessage from "./AlertMessage";
+import {firstquestion} from "../actions/actions-types";
 //import leftMenus (containning SCORE  and NBquestion)
 import LeftMenu from "./LeftMenus";
 
-//define a settimer in order to define popup time on screen
+//define popup time on screen
 var settimer = null;
 
 class Createquestion extends Component {
@@ -16,33 +16,33 @@ class Createquestion extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            affichageGood : false
+            Success : false
         };
     }
 
     //MOUNT component
     componentDidMount() {
-        //on assigne + récupere les variable depuis "this.props"
-        const {premierequestion}= this.props;
+        //Assign + get the variabl from "this.props"
+        const {firstquestion}= this.props;
         const {state} = this.props.calcul;
 
-        //on affiche letat du component
+        //display state of component
         console.log(state);
-        //on lance la premierequestion
-        premierequestion();
+        //start firstquestion
+        firstquestion();
     }
 
     // UPDATE component
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const {questions, allQuestions, reponsePopup} = this.props.calcul;
+        const {questions, allQuestions, answerPopup} = this.props.calcul;
 
-        if(prevProps.calcul.reponsePopup !== reponsePopup && questions !== allQuestions){
-            console.log('PRINT AFFICHAGE');
-            //affichageGood à true
-            this.setState({affichageGood: true});
-            //on définis le temps d'affichage ici
+        if(prevProps.calcul.answerPopup !== answerPopup && questions !== allQuestions){
+            console.log('PRINT DISPLAY');
+            //set Success to true
+            this.setState({Success: true});
+            //set time of display and put Success to false
             settimer = setTimeout(() => 
-                this.setState({affichageGood: false})
+                this.setState({Success: false})
                 , 3000)
         }
     }
@@ -56,7 +56,7 @@ class Createquestion extends Component {
     render() {
 
         //define const from this.props.calcul
-        const {result, allQuestions, question, questions, reponsePopup, } = this.props.calcul;
+        const {result, allQuestions, question, questions, answerPopup, } = this.props.calcul;
 
         //like asked we print the result in console.log HERE
         console.log(result);
@@ -71,12 +71,12 @@ class Createquestion extends Component {
             répondre.\n Que la force soit avec toi !`
         }
         //check if good answer
-        else if(reponsePopup.correctAnswer) {
-            text = `Super! C'est la bonne réponse : ${reponsePopup.question.question} ${reponsePopup.question.answer}`;
+        else if(answerPopup.correctAnswer) {
+            text = `Super! C'est la bonne réponse : ${answerPopup.question.question} ${answerPopup.question.answer}`;
         }
         //else its a bad answer !
         else {
-            text = `Mauvaise réponse, la bonne réponse était : ${reponsePopup.question.question} ${reponsePopup.question.answer}`;
+            text = `Mauvaise réponse, la bonne réponse était : ${answerPopup.question.question} ${answerPopup.question.answer}`;
         }
             //return all fragement (header + game + scoring + nbquestion + leftmenus)
             return (
@@ -88,17 +88,17 @@ class Createquestion extends Component {
                         <main>
                             <div className={"row"}>
                                 <div className={"col-7"}>
-                                    { this.state.affichageGood &&
-                                    <Alertmessage color={reponsePopup.correctAnswer ? 'success' : 'danger' }>
-                                        {reponsePopup.correctAnswer? 'Bravo!' : 'Raté...'}
-                                    </Alertmessage>
+                                    { this.state.Success &&
+                                    <AlertMessage color={answerPopup.correctAnswer ? 'success' : 'danger' }>
+                                        {answerPopup.correctAnswer? 'Bravo!' : 'Raté...'}
+                                    </AlertMessage>
                                     }
-                                    <Alertmessage>
+                                    <AlertMessage>
                                         {text}
-                                    </Alertmessage>
-                                    <Alertmessage>
+                                    </AlertMessage>
+                                    <AlertMessage>
                                         Calculez: {question.question} {result}
-                                    </Alertmessage>
+                                    </AlertMessage>
                                     <Keypad/>
                                 </div>
                                 <div className={"col-4"}>       
@@ -113,6 +113,6 @@ class Createquestion extends Component {
 }
 
 const mapStateToProps = (state) =>{return {...state }};
-const mapDispatchToProps =  {premierequestion};
+const mapDispatchToProps =  {firstquestion};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Createquestion)

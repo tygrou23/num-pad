@@ -5,15 +5,15 @@ import {connect} from "react-redux";
 class LeftMenu extends Component{
 
     render(){
-        //get the questions number and scoretotal of the user from this.props.calcul
-        const {questions, scoretotal} = this.props.calcul;
+        //get the questions number and totalscore of the user from this.props.calcul
+        const {questions, totalscore} = this.props.calcul;
         return(
             <div className="card">
                 <ul className={"list-group-flush list-group"}>
                     <li className={"list-group-item"}>
                         Nombre de question(s) restante(s) : {questions}
                     </li>
-                    <li className={"list-group-item"}>Score: {scoretotal}</li>
+                    <li className={"list-group-item"}>Score: {totalscore}</li>
                 </ul>
             </div>
         )

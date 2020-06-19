@@ -13,7 +13,7 @@ class KeypadNumber extends Component {
     }
 }
 
-const mapStateToProps = (state) =>{return {...state }};
+const mapStateToProps = (state) => {return {...state }};
 const mapDispatchToProps =  {addnumber};
 
 export default connect(mapStateToProps, mapDispatchToProps)(KeypadNumber)

@@ -1,5 +1,5 @@
 //import dependancies
-import { ADD_NUMBER, VERIF, PREMIERE_QUESTION, CLEAR_ONE, CLEAR_ALL,  USER_SCORE, GET_BESTHIGHSCORES } from "../constants/actions";
+import { ADD_NUMBER, CHECK, FIRST_QUESTION, CLEAR_ONE, CLEAR_ALL,  USER_SCORE, GET_BESTHIGHSCORES } from "../constants/actions";
 
 //creation of addnumber usage
 export const addnumber = (payload) =>{
@@ -8,17 +8,17 @@ export const addnumber = (payload) =>{
     }
 };
 
-//creation of verif usage
-export const verif = () =>{
+//creation of check usage
+export const check = () =>{
     return {
-        type : VERIF,
+        type : CHECK,
     }
 };
 
-//creation of premierequestion usage
-export const premierequestion = () =>{
+//creation of firstquestion usage
+export const firstquestion = () =>{
     return {
-        type : PREMIERE_QUESTION,
+        type : FIRST_QUESTION,
     }
 };
 

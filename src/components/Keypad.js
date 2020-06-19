@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import Keypadnumber from "./Keypadnumber";
 import {connect} from "react-redux";
-import {clearone, clearall, verif} from "../actions/actions-types";
+import {clearone, clearall, check} from "../actions/actions-types";
 
 class Keypad extends Component{
 
     render(){
         //get the different action from this.props and assign to diff buttons
-        const {clearone, clearall, verif} = this.props;
+        const {clearone, clearall, check} = this.props;
 
         return(
             <div class="rowleft">
@@ -51,7 +51,7 @@ class Keypad extends Component{
                     </div>
                 </div>
                 <div className="row">
-                    <button className="btn btn-primary" onClick={verif}>Go!</button>
+                    <button className="btn btn-primary" onClick={check}>Go!</button>
                 </div>
                 <div className="row">
                     <button className="btn btn-danger" onClick={clearone}>Clear Number</button>
@@ -64,6 +64,6 @@ class Keypad extends Component{
     }
 }
 const mapStateToProps = (state) =>{return {...state }};
-const mapDispatchToProps =  {clearone, verif, clearall};
+const mapDispatchToProps =  {clearone, check, clearall};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Keypad)

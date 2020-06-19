@@ -1,7 +1,7 @@
 //const defins for the multiplication game
 export const ADD_NUMBER = "ADD_NUMBER";
-export const PREMIERE_QUESTION = "PREMIERE_QUESTION";
-export const VERIF = "VERIF";
+export const FIRST_QUESTION = "FIRST_QUESTION";
+export const CHECK = "CHECK";
 export const CLEAR_ONE = "CLEAR_ONE";
 export const CLEAR_ALL = "CLEAR_ALL";
 
